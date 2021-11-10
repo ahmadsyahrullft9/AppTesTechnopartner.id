@@ -1,8 +1,6 @@
 package com.example.myapplication.fragments
 
-import android.annotation.SuppressLint
 import android.os.Handler
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,15 +16,14 @@ import com.rd.draw.data.Orientation
 import com.rd.draw.data.RtlMode
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
+import com.example.myapplication.dialogs.QrCodeDialog
+import java.lang.Exception
 
 import java.util.*
 
 class HomeFragment : BindingFragment<FragmentHomeBinding>() {
 
     private lateinit var homeViewModel: HomeViewModel
-
-    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentHomeBinding
-        get() = FragmentHomeBinding::inflate
 
     private var homeResponse: HomeResponse? = null
     private lateinit var fragmentHomeBinding: FragmentHomeBinding
@@ -37,6 +34,9 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>() {
     private val PERIOD_MS: Long = 2000
 
     private val TAG = "HomeFragment"
+
+    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentHomeBinding
+        get() = FragmentHomeBinding::inflate
 
     override fun setupView(binding: FragmentHomeBinding) {
         homeViewModel = HomeViewModelFactory(requireContext()).create(HomeViewModel::class.java)
@@ -140,7 +140,7 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>() {
     }
 
     private fun showQrCodePage() {
-        val qrCodeFragment = QrCodeFragment(requireContext(), homeResponse!!.result.qrcode)
+        val qrCodeFragment = QrCodeDialog(requireContext(), homeResponse!!.result.qrcode)
         qrCodeFragment.show()
     }
 
@@ -149,7 +149,11 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>() {
     }
 
     private fun showLoading(display: Boolean) {
-        fragmentHomeBinding.swipeRefresh.isRefreshing = display
+        try {
+            fragmentHomeBinding.swipeRefresh.isRefreshing = display
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 
 }

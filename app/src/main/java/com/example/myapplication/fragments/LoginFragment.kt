@@ -9,13 +9,16 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentLoginBinding
+import com.example.myapplication.dialogs.LoadingDialog
 import com.example.myapplication.lib.BindingFragment
 import com.example.myapplication.networks.NetworkState
 import com.example.myapplication.viewmodels.LoginViewModel
 import com.example.myapplication.viewmodels.LoginViewModelFactory
+import java.lang.Exception
 
 class LoginFragment : BindingFragment<FragmentLoginBinding>() {
 
+    private lateinit var loadingDialog: LoadingDialog
     private lateinit var loginViewModel: LoginViewModel
 
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentLoginBinding
@@ -23,6 +26,7 @@ class LoginFragment : BindingFragment<FragmentLoginBinding>() {
 
     override fun setupView(binding: FragmentLoginBinding) {
         loginViewModel = LoginViewModelFactory(requireContext()).create(LoginViewModel::class.java)
+        loadingDialog = LoadingDialog(requireContext())
         binding.apply {
             edEmail.addTextChangedListener { edEmail.error = null }
             edPassword.addTextChangedListener { edPassword.error = null }
@@ -56,20 +60,27 @@ class LoginFragment : BindingFragment<FragmentLoginBinding>() {
                 }
             }
 
-            userAccess.observe(this@LoginFragment) { userAccess ->
-                if (userAccess != null) {
-                    loginViewModel.updateUserAccessToDataStore(userAccess)
-                    Toast.makeText(requireContext(), "login success", Toast.LENGTH_LONG).show()
-                    //navigate to home
-                    findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeFragment())
-                    findNavController().popBackStack(R.id.loginFragment, true)
-                }
+            userAccess.observe(requireActivity()) { userAccess ->
+                loginViewModel.updateUserAccessToDataStore(userAccess)
+                Toast.makeText(requireContext(), "login success", Toast.LENGTH_LONG).show()
+                //navigate to home
+                findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeFragment())
+                findNavController().popBackStack(R.id.loginFragment, true)
             }
         }
     }
 
     private fun showLoading(display: Boolean) {
-
+        try {
+            loadingDialog.setCancelable(false)
+            if (display) {
+                loadingDialog.show()
+            } else {
+                loadingDialog.dismiss()
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 
     private fun processLogin(emailAddress: String, password: String) {

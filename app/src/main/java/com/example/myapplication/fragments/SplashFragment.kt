@@ -46,17 +46,17 @@ class SplashFragment : BindingFragment<FragmentSplashscreenBinding>() {
     }
 
     private fun check() {
-        findNavController().popBackStack(R.id.splashFragment, true)
         if (userAccess == null || (!TextUtils.isEmpty(userAccess?.accessToken) && !TextUtils.isEmpty(
                 userAccess?.tokenType
             ))
         ) {
             //navigate to home
-            findNavController().navigate(R.id.homeFragment)
+            findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToHomeFragment())
         } else {
             //navigate to login
-            findNavController().navigate(R.id.loginFragment)
+            findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToLoginFragment())
         }
+        findNavController().popBackStack(R.id.splashFragment, true)
     }
 
 }

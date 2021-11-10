@@ -8,15 +8,20 @@
         <entry key="app/src/main/res/drawable/icon_menu.xml" value="0.21458333333333332" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1984375" />
         <entry key="app/src/main/res/layout/activity_splashscreen.xml" value="0.1984375" />
+        <entry key="app/src/main/res/layout/dialog_loading.xml" value="0.1984375" />
         <entry key="app/src/main/res/layout/fragment_banner.xml" value="0.1984375" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.16" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.1984375" />
         <entry key="app/src/main/res/layout/fragment_menu.xml" value="0.1984375" />
         <entry key="app/src/main/res/layout/fragment_qrcode.xml" value="0.1984375" />
         <entry key="app/src/main/res/layout/fragment_splashscreen.xml" value="0.1984375" />
+        <entry key="app/src/main/res/layout/item_categorymenu.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/item_categoryname.xml" value="0.1984375" />
         <entry key="app/src/main/res/layout/login_fragment.xml" value="0.16" />
         <entry key="app/src/main/res/layout/splashscreen_fragment.xml" value="0.1984375" />
+        <entry key="app/src/main/res/layout/toolbar_home.xml" value="0.1984375" />
         <entry key="app/src/main/res/layout/toolbar_main.xml" value="0.1984375" />
+        <entry key="app/src/main/res/layout/toolbar_menu.xml" value="0.1984375" />
         <entry key="app/src/main/res/menu/main_menu.xml" value="0.1984375" />
         <entry key="app/src/main/res/xml/network_https.xml" value="0.1984375" />
       </map>
