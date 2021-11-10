@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="listmenu">List menu</string>
+    <string name="home">home</string>
+    <string name="fragment_splashscreen">Splash Screen</string>
+    <string name="fragment_login">Login Form</string>
+    <string name="fragment_home">Home</string>
+    <string name="fragment_menu">Menu</string>
+    <string name="saldo">Saldo</string>
+    <string name="point">Point</string>
+    <string name="view_all">View All</string>
+</resources>

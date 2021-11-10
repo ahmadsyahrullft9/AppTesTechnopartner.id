@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="default_corner_radius">8dp</dimen>\
+    <dimen name="default_padding">16dp</dimen>
+    <dimen name="small_padding">8dp</dimen>
+    <dimen name="default_margin">16dp</dimen>
+    <dimen name="banner_height">156dp</dimen>
+    <dimen name="middle_padding">6dp</dimen>
+</resources>
