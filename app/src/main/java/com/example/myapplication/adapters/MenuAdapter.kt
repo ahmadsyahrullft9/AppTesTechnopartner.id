@@ -12,13 +12,8 @@ import com.example.myapplication.viewholders.CategoryNameViewHolder
 
 class MenuAdapter(
     private val context: Context,
-    private var categoryAndMenuList: ArrayList<CategoryAndMenu>,
-    private val listener: Listener
+    private var categoryAndMenuList: ArrayList<CategoryAndMenu>
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-
-    interface Listener {
-        fun categoryNameSelected(categoryName: CategoryAndMenu.CategoryName, position: Int)
-    }
 
     companion object {
         const val ITEM_TYPE = 1
@@ -47,9 +42,6 @@ class MenuAdapter(
                 val categoryName: CategoryAndMenu.CategoryName =
                     categoryAndMenuList[position] as CategoryAndMenu.CategoryName
                 holder.onBind(categoryName)
-                holder.itemView.setOnClickListener {
-                    listener.categoryNameSelected(categoryName, position)
-                }
             }
             is CategoryMenuViewHolder -> {
                 val categoryMenu: CategoryAndMenu.CategoryMenu =

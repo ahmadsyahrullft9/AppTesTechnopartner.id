@@ -21,8 +21,8 @@ class QrCodeDialog(context: Context, val url: String) : Dialog(context) {
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         setContentView(R.layout.dialog_qrcode)
         window!!.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
-        val v = window!!.decorView
-        v.setBackgroundResource(R.color.white)
+//        val v = window!!.decorView
+//        v.setBackgroundResource(R.color.white)
 
         val imgQrcode: ImageView = findViewById(R.id.img_qrcode)
         val imgClose: ImageView = findViewById(R.id.img_close)

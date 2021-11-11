@@ -9,6 +9,7 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1984375" />
         <entry key="app/src/main/res/layout/activity_splashscreen.xml" value="0.1984375" />
         <entry key="app/src/main/res/layout/dialog_loading.xml" value="0.1984375" />
+        <entry key="app/src/main/res/layout/dialog_qrcode.xml" value="0.1984375" />
         <entry key="app/src/main/res/layout/fragment_banner.xml" value="0.1984375" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.16" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.1984375" />

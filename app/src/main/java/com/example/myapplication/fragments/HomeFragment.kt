@@ -1,10 +1,13 @@
 package com.example.myapplication.fragments
 
+import android.content.DialogInterface
 import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import androidx.navigation.fragment.findNavController
 import com.example.myapplication.adapters.BannerAdapter
 import com.example.myapplication.databinding.FragmentHomeBinding
 import com.example.myapplication.lib.BindingFragment
@@ -16,6 +19,7 @@ import com.rd.draw.data.Orientation
 import com.rd.draw.data.RtlMode
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
+import com.example.myapplication.R
 import com.example.myapplication.dialogs.QrCodeDialog
 import java.lang.Exception
 
@@ -43,6 +47,24 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>() {
         fragmentHomeBinding = binding
 
         binding.apply {
+            toolbarHome.imgExitAccount.setOnClickListener {
+                val builder =
+                    AlertDialog.Builder(requireContext()).setTitle("Exit Account Confirmation")
+                        .setMessage("Do you want to sign out from this account ?")
+                        .setPositiveButton("Sign out", object : DialogInterface.OnClickListener {
+                            override fun onClick(dialog: DialogInterface?, which: Int) {
+                                homeViewModel.logoutAccount()
+                                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToSplashFragment())
+//                                findNavController().popBackStack(R.id.homeFragment, true)
+                            }
+                        }).setNegativeButton("Cancel", object : DialogInterface.OnClickListener {
+                            override fun onClick(dialog: DialogInterface?, which: Int) {
+                                dialog?.dismiss()
+                            }
+                        }).setCancelable(false)
+                val dialog = builder.create()
+                dialog.show()
+            }
             homeViewModel.networkState.observe(requireActivity()) {
                 when (it) {
                     NetworkState.LOADING -> showLoading(true)

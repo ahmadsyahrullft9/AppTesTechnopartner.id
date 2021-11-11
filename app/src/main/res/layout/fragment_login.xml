@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/default_form"
     tools:context=".fragments.LoginFragment">
 
     <ImageView
@@ -32,7 +31,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:text="@string/email"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintBottom_toTopOf="@+id/card1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -59,11 +58,10 @@
             android:id="@+id/ed_email"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/white"
+            android:background="@android:color/transparent"
             android:imeOptions="actionNext"
             android:inputType="textEmailAddress"
-            android:paddingHorizontal="@dimen/default_padding"
-            android:textColor="@color/darkgrey" />
+            android:paddingHorizontal="@dimen/default_padding" />
     </androidx.cardview.widget.CardView>
 
     <TextView
@@ -75,7 +73,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
         android:text="@string/password"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintBottom_toTopOf="@+id/card2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -101,11 +99,10 @@
             android:id="@+id/ed_password"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/white"
+            android:background="@android:color/transparent"
             android:imeOptions="actionDone"
             android:inputType="textPassword"
-            android:paddingHorizontal="@dimen/default_padding"
-            android:textColor="@color/darkgrey" />
+            android:paddingHorizontal="@dimen/default_padding" />
     </androidx.cardview.widget.CardView>
 
     <com.google.android.material.button.MaterialButton
@@ -115,9 +112,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:backgroundTint="@color/white"
         android:text="@string/login"
-        android:textColor="@color/darkgrey"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

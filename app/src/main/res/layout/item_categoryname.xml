@@ -15,7 +15,7 @@
         android:ellipsize="end"
         android:maxLines="1"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@color/darkgrey"
+        android:textStyle="bold"
         tools:text="@string/app_name" />
 
 </LinearLayout>

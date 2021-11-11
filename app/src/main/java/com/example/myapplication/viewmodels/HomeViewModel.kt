@@ -94,6 +94,10 @@ class HomeViewModel(context: Context) : ViewModel() {
         })
     }
 
+    fun logoutAccount() = viewModelScope.launch {
+        prefferenceManager.resetUserAccess()
+    }
+
     fun cancelAll() {
         homeCall?.cancel()
     }

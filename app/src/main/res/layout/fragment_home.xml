@@ -146,7 +146,6 @@
                 android:id="@+id/view_slider"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/banner_height"
-                android:background="@color/white"
                 android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

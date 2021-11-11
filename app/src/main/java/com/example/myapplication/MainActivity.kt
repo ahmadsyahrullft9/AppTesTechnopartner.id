@@ -35,7 +35,7 @@ class MainActivity : BindingActivity<ActivityMainBinding>() {
                     getString(R.string.fragment_login) -> {
                         bottomNavigationView.apply {
                             visibility = View.GONE
-                            if (prevDestination != null && prevDestination!!.label == getString(R.string.fragment_menu)) {
+                            if (prevDestination != null && prevDestination!!.label == getString(R.string.fragment_home)) {
                                 startAnimation(slideDown)
                                 this.menu.findItem(R.id.action_home).isChecked = false
                                 this.menu.findItem(R.id.action_menu).isChecked = true
@@ -47,8 +47,9 @@ class MainActivity : BindingActivity<ActivityMainBinding>() {
                         bottomNavigationView.apply {
                             visibility = View.VISIBLE
                             if (prevDestination != null &&
-                                (prevDestination!!.label == getString(R.string.fragment_splashscreen) ||
-                                        prevDestination!!.label == getString(R.string.fragment_login))
+                                (prevDestination!!.label == getString(R.string.fragment_splashscreen) || prevDestination!!.label == getString(
+                                    R.string.fragment_login
+                                ))
                             ) startAnimation(slideUp)
                         }
                     }
